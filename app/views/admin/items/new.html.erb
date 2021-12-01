@@ -1,0 +1,18 @@
+<h3>商品新規登録</h3>
+<%= form_with model:@item, local:true do |f| %>
+<div>
+  <%= f.label :image, '商品画像' %>
+  <%= f.attachment_field :image %>
+</div>
+<div>
+  <%= f.label :name, '商品名' %>
+  <%= f.text_field :name %>
+</div>
+<div>
+  <%= f.label :introduction, '商品説明' %>
+  <%= f.text_field :introduction %>
+</div>
+<div>
+  <%= f.text_area :is_active %>
+</div>
+<% end %>

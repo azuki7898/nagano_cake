@@ -18,14 +18,14 @@ Rails.application.routes.draw do
 
 
   scope module: :admin do
-    devise_for :admins
+    devise_for :admins, only: [:session, :password]
   end
 
   namespace :admin do
     resources :items
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
-    resources :orders, only: [:show, :update]
+    resources :orders, only: [:index,:show, :update]
     resources :order_details, only: [:update]
     get '' => 'homes#top'
   end
