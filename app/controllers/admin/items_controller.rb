@@ -9,7 +9,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(params[:id])
+    @item = Item.new(item_params)
     @item.save
     redirect_to admin_items_path
   end
