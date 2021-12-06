@@ -16,7 +16,7 @@
       <th><%= item.name %></th>
       <th><%= item.price %>円</th>
       <th><%= item.genre.name %></th>
-      <th><%= item.is_active %></th>
+      <th><%= item.is_active ? '販売中' : '販売停止' %></th>
     </tr>
     <% end %>
   </tbody>
