@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
 
-  belongs_to :admin
+  belongs_to :admin, optional: true
   has_many :order_details
 
   enum payment_method: {"クレジットカード": 0, "銀行振込": 1}
