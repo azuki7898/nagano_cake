@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2021_11_28_161544) do
     t.integer "order_id"
     t.string "tax_price"
     t.string "quantity"
+    t.integer "making_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -92,10 +93,10 @@ ActiveRecord::Schema.define(version: 2021_11_28_161544) do
     t.string "postal_code"
     t.string "address"
     t.string "name"
-    t.integer "payment_method"
+    t.integer "payment_method", default: 0, null: false
     t.string "postage"
     t.string "order_price"
-    t.integer "is_active"
+    t.integer "is_active", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
