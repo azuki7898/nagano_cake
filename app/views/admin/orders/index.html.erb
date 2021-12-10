@@ -1,4 +1,4 @@
-<h3><%= @customer.last_name %><%= @customer.first_name %>さんの注文履歴</h3>
+<h3><%= @orders.customer.last_name %><%= @orders.customer.first_name %>さんの注文履歴</h3>
 <table>
   <thead>
     <tr>
@@ -8,9 +8,9 @@
     </tr>
   </thead>
   <tbody>
-    <% @customer.each do |customer| %>
+    <% @orders.each do |order| %>
     <tr>
-      <td><%= customer.created_at %></td>
+      <td><%= order.created_at %></td>
       <td>注文個数</td>
       <td>注文ステータス</td>
     </tr>
