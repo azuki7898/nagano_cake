@@ -90,5 +90,6 @@ Admin.create!(
   OrderDetail.create!(
     item_id: 1,
     order_id: 1,
+    quantity: 1,
     making_status: 0
-    )
+  )
