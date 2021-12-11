@@ -14,7 +14,11 @@
       <div class="container">
         <nav class="nav">
 
+           <% if admin_signed_in? %>
            <h1><%= link_to 'ながのCAKE', admin_path %></h1>
+           <% else %>
+           <h1><%= link_to 'ながのCAKE', '/' %></h1>
+           <% end %>
              <ul class="nav ml-auto pull-right nav-pills">
 
               <% if admin_signed_in? %>
