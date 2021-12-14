@@ -4,13 +4,7 @@
   </div>
   <div class="row">
         <div class="col-lg-2">
-          <p>ジャンル検索</p>
-
-          <ul>
-            <% @genres.each do |genre| %>
-            <li><%= genre.name %></li>
-            <% end %>
-          </ul>
+          <%= render 'public/homes/genre', genres: @genres %>
         </div>
 
         <div class="col-lg-8 col-offset-1">

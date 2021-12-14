@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2">
+      <%= render 'public/homes/genre', genres: @genres %>
+    </div>
+    <div class="col-lg-5">
+      <%= attachment_image_tag @item(item), :image, :fill, 200, 200, fallback: 'no_image.jpg' %>
+    </div>
+    <div class="col-lg-5">
+      <%= @item.name %>
+      <%= @item.introduction %>
+      <%= (@item.price * 1.1).round.to_s(:delimited) %>円(税込)
+    </div>
+    <div>
+      <%= form_with model:
+    </div>
+  </div>
+</div>
