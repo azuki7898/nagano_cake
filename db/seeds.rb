@@ -10,8 +10,9 @@ Admin.create!(
   email: 'a@abc.com',
   password: 'aaaaaa'
   )
- 
+
  Customer.create!(
+     [{
        last_name: 'テスト',
        first_name: '太郎',
        last_name_kana: 'テスト',
@@ -21,8 +22,37 @@ Admin.create!(
        postal_code: '111111',
        address: '東京都XXX区1-1-1',
        telephone_number: '000000000'
+     },
+     {
+       last_name: 'テスト',
+       first_name: '花子',
+       last_name_kana: 'テスト',
+       first_name_kana: 'ハナコ',
+       email: 'c@c.com',
+       password: 'cccccc',
+       postal_code: '555555',
+       address: '神奈川県XXX市5-5-5',
+       telephone_number: '5555555555'
+     }
+     ]
   )
-  
+
+  Address.create!(
+    [{
+     customer_id: 1,
+     name: 'テスト次郎',
+     postal_code: '333333',
+     address: '東京都XXX区3-3-3'
+    },
+    {
+      customer_id: 2,
+      name: 'テスト三郎',
+      postal_code: '666666',
+      address: '神奈川県XXX市6-6-6'
+    }
+    ]
+    )
+
   Genre.create!(
     [
       {
@@ -39,7 +69,7 @@ Admin.create!(
       }
     ]
   )
-  
+
   Item.create!(
     [
       {
@@ -76,7 +106,7 @@ Admin.create!(
       }
     ]
   )
-  
+
   Order.create!(
         customer_id: 1,
         postal_code: '111111',
@@ -86,7 +116,7 @@ Admin.create!(
         postage: 800,
         is_active: 0
   )
-    
+
   OrderDetail.create!(
     item_id: 1,
     order_id: 1,
