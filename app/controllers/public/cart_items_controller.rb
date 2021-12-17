@@ -8,10 +8,14 @@ class Public::CartItemsController < ApplicationController
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
     @cart_item.item_id = params[:cart_item][:item_id]
-    if @cart_item.save
+    if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
+      @cart_item.amount += params[:cart_item][:amount].to_i
+      @cart_item.save
       redirect_to cart_items_path
+    elsif @cart_item.save
+        redirect_to cart_items_path
     else
-      redirect_to item_path(params[:item_id])
+       redirect_to item_path(params[:item_id])
     end
   end
 
@@ -23,7 +27,7 @@ class Public::CartItemsController < ApplicationController
 
   def destroy
     @cart_item = CartItem.find(params[:id])
-    @cart_ite.destroy
+    @cart_item.destroy
     redirect_to cart_items_path
   end
 

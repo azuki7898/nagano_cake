@@ -39,25 +39,20 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    # session[:order] = Order.new
-    # session[:order][:payment_method] = params[:value]
+    @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
+    @order.save
+    current_customer.cart_items.each do |cart_item|
+      @order_detail = OrderDetail.new
+      @order_detail.item_id = cart_item.item_id
+      @order_detail.tax_price = cart_item.item.price * 1.1
+      @order_detail.quantity = cart_item.amount
+    end
+    current_customer.cart_items.destroy_all
+    redirect_to orders_thanks_path
+  end
 
-    # if params[:address_value] = 0
-    #   session[:order][:postal_code] = current_customer.postal_code
-    #   session[:order][:address] = current_customer.address
-    #   session[:order][:name] = current_customer.last_name + current_customer.first_name
-
-    # elsif params[:address_value] = 1
-    #   address = Address.where(customer_id: current_customer.id)
-    #   session[:order][:postal_code] = address.postal_code
-    #   session[:order][:address] = address.address
-    #   session[:order][:name] = address.name
-
-    # elsif params[:address_value] = 2
-    #   session[:order][:postal_code] = params[:postal_code]
-    #   session[:order][:address] = params[:address]
-    #   session[:order][:name] = params[:name]
-    # end
+  def thanks
   end
 
   def index
@@ -66,10 +61,6 @@ class Public::OrdersController < ApplicationController
   def show
   end
 
-
-
-  def thanks
-  end
 
   private
   def order_params

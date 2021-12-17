@@ -1,0 +1,18 @@
+ja:
+  enums:
+    order:
+      payment_method:
+        credit_card: 'クレジットカード'
+        bank_transfer: '銀行振込'
+      is_active:
+        not_payment: '入金待ち'
+        deposited: '入金確認'
+        production: '製作中'
+        waiting: '発送準備中'
+        complited: '発送完了'
+    order_detail:
+      making_status:
+        no_manufactured: '製作不可'
+　　　  wait_production: '製作待ち'
+　　　  production: '製作中'
+　　　  complited: '製作完了'
