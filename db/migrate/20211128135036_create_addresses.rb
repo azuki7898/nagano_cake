@@ -9,4 +9,4 @@ class CreateAddresses < ActiveRecord::Migration[5.2]
       t.timestamps
     end
   end
-endna
+end

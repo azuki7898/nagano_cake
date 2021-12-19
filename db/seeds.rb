@@ -114,6 +114,7 @@ Admin.create!(
         name: 'テスト花子',
         payment_method: 0,
         postage: 800,
+        order_price: 1230,
         is_active: 0
   )
 
