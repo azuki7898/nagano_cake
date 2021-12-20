@@ -45,7 +45,7 @@ class Public::OrdersController < ApplicationController
     current_customer.cart_items.each do |cart_item|
       order_detail = order.order_details.new
       order_detail.item_id = cart_item.item_id
-      order_detail.tax_price = cart_item.item.price * 1.1
+      order_detail.tax_price = (cart_item.item.price * 1.1).round.to_s(:delimited)
       order_detail.quantity = cart_item.amount
       order_detail.save
     end
@@ -61,6 +61,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
   end
 
 
